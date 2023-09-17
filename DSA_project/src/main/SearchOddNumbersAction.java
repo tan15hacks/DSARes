@@ -15,17 +15,22 @@ public class SearchOddNumbersAction implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String input = JOptionPane.showInputDialog(menuFrame, "Enter '1' to display odd numbers:");
-        if ("1".equals(input)) {
-            String result = "Odd numbers in the array: ";
-            for (int number : numbers) {
-                if (number % 2 != 0) {
-                    result += number + " ";
+        String input = JOptionPane.showInputDialog(menuFrame, "Enter an odd number:");
+        try {
+            int userInput = Integer.parseInt(input);
+            if (userInput % 2 != 0 && userInput >= 1 && userInput <= 10) {
+                String result = "Odd numbers in the array: ";
+                for (int number : numbers) {
+                    if (number % 2 != 0) {
+                        result += number + " ";
+                    }
                 }
+                JOptionPane.showMessageDialog(menuFrame, result);
+            } else {
+                JOptionPane.showMessageDialog(menuFrame, "Invalid input. Please enter an odd number between 1 and 10.");
             }
-            JOptionPane.showMessageDialog(menuFrame, result);
-        } else {
-            JOptionPane.showMessageDialog(menuFrame, "Invalid input. Please enter '2' to display odd numbers.");
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(menuFrame, "Invalid input. Please enter a valid number.");
         }
     }
 }

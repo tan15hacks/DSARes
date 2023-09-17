@@ -13,18 +13,24 @@ public class SearchEvenNumbersAction implements ActionListener {
         this.numbers = numbers;
     }
 
+    @Override
     public void actionPerformed(ActionEvent e) {
-        String input = JOptionPane.showInputDialog(menuFrame, "Enter '2' to display Even numbers:");
-        if ("2".equals(input)) {
-            String result = "Even numbers in the array: ";
-            for (int number : numbers) {
-                if (number % 2 == 0) {
-                    result += number + " ";
+        String input = JOptionPane.showInputDialog(menuFrame, "Enter an odd number:");
+        try {
+            int userInput = Integer.parseInt(input);
+            if (userInput % 2 == 0 && userInput >= 1 && userInput <= 10) {
+                String result = "Even numbers in the array: ";
+                for (int number : numbers) {
+                    if (number % 2 == 0) {
+                        result += number + " ";
+                    }
                 }
+                JOptionPane.showMessageDialog(menuFrame, result);
+            } else {
+                JOptionPane.showMessageDialog(menuFrame, "Invalid input. Please enter an odd number between 1 and 10.");
             }
-            JOptionPane.showMessageDialog(menuFrame, result);
-        } else {
-            JOptionPane.showMessageDialog(menuFrame, "Invalid input. Please enter '1' to display odd numbers.");
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(menuFrame, "Invalid input. Please enter a valid number.");
         }
     }
 }

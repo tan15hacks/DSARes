@@ -5,8 +5,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//hello
-
 public class Main_class {
     private JFrame frame;
     private JTextField usernameField;
