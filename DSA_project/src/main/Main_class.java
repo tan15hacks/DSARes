@@ -1,8 +1,11 @@
-package src.main;
+package main ;
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+//hello
 
 public class Main_class {
     private JFrame frame;
