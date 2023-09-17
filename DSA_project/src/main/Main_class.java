@@ -82,8 +82,8 @@ public class Main_class {
 
      // Create instances of action classes and attach them to buttons
         button1.addActionListener(new SearchOddNumbersAction(menuFrame, numbers));
-        
         button2.addActionListener(new SearchEvenNumbersAction(menuFrame, numbers));
+        button3.addActionListener(new SwapOddEvenNumbersAction(menuFrame, numbers));
     
         // Add buttons to the menu frame
         menuFrame.add(button1);
